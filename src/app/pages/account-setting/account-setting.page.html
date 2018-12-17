@@ -1,0 +1,116 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button default-href="login"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Account setting</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="complete()" color="primary">
+                complete
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="home">
+    <div class="head" color="light">
+        <ion-grid>
+            <ion-row>
+                <ion-col class="margin-auto" size-xs="3">
+                    <img class="shadow img-round" src="https://via.placeholder.com/1000.png"/>
+                </ion-col>
+                    <ion-col class="margin-auto" padding-start>
+                        <!-- <ion-item no-padding>
+                            <ion-label position="floating">Name</ion-label>
+                            <ion-input></ion-input>
+                        </ion-item> -->
+                        <!-- <p id="editor" contenteditable>Tyler Lee</p> -->
+                        <p>Account Name</p>
+                        <!-- <p>
+                            Tyler Lee
+                            <ion-icon class="margin-auto" name="settings" class="pointer"></ion-icon>
+                        </p> -->
+                        <ion-button no-padding expand="block" color="tertiary">
+                            <ion-col size='3' no-padding class="uploadIcon">
+                                <ion-icon name="paper"></ion-icon>
+                            </ion-col>
+                            <ion-col size='9' no-padding class="uploadText">
+                                <p>
+                                    UPLOAD RESUME
+                                </p>
+                            </ion-col>
+                        </ion-button>
+                    </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <mat-tab-group [selectedIndex]="0">
+        <mat-tab label="Information">
+            <div class="tab-content">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Name"/>
+                    <mat-icon matSuffix class="font-theme">*</mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="date" matInput placeholder="Date of birth" value="1990-01-01"/>
+                </mat-form-field>
+                    <mat-form-field>
+                        <mat-select placeholder="Gender" name="gender">
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-select placeholder="Nationality">
+                            <mat-option *ngFor="let nation of nationalities" [value]="nation">
+                                {{ nation }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Status of job search"/>
+                        <mat-icon matSuffix class="font-theme">*</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Organization"/>
+                        <mat-icon matSuffix class="font-theme">*</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Graduated School"/>
+                        <mat-icon matSuffix class="font-theme">*</mat-icon>
+                    </mat-form-field>
+            </div>
+        </mat-tab>
+
+        <mat-tab label=" Academic">
+            <div class="tab-content">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Facuity" value=""/>
+                </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Department" value=""/>
+                </mat-form-field>
+
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Job Status">
+            <div class="tab-content">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Business Unit"/>
+                    <!-- <mat-icon matSuffix class="font-theme">*</mat-icon> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Primary Location" />
+                    <!-- <mat-icon matSuffix class="font-theme">*</mat-icon> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Assignment Category"/>
+                    <!-- <mat-icon matSuffix class="font-theme">*</mat-icon> -->
+                </mat-form-field>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</ion-content>

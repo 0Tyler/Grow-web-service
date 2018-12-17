@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="home">
+    <div class="head" color="light">
+        <!-- <ion-grid>
+            <ion-row>
+                <ion-col class="margin-auto" size-xs="3">
+                    <img class="shadow img-round" src="https://via.placeholder.com/1000.png"/>
+                </ion-col>
+                    <ion-col class="margin-auto" padding-start>
+                        <p>
+                            Tyler Lee
+                            <ion-icon class="margin-auto" name="settings" class="pointer"></ion-icon>
+                        </p>
+                        <ion-button no-padding expand="block" color="tertiary">
+                            <ion-col size='3' padding-start class="uploadIcon">
+                                <ion-icon name="paper"></ion-icon>
+                            </ion-col>
+                            <ion-col size='9' padding-end> UPLOAD RESUME </ion-col>
+                        </ion-button>
+                        <p>
+                            
+                        </p>
+                    </ion-col>
+            </ion-row>
+        </ion-grid> -->
+        <ion-grid fixed>
+            <ion-row>
+                <div class="flex-center">
+                    <img class="shadow img-round" src="../../../../assets/image/David Fogel.png"/>
+                </div>
+            </ion-row>
+            <ion-row class="flex-center">
+                <p>
+                    Tyler Lee
+                </p>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <mat-tab-group mat-align-tabs="center" [selectedIndex]="0">
+        <mat-tab label="Information">
+            <div class="tab-content">
+                <mat-form-field>
+                    <input type="text" readonly value="1996/03/30" matInput placeholder="Date of birth"/>
+                </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" readonly value="Male" matInput placeholder="Gender"/>
+                </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" readonly value="Japan" matInput placeholder="Nationality"/>
+                </mat-form-field>
+                            <mat-form-field>
+                                <input type="text" readonly value=" " matInput placeholder="Status of job search"/>
+                </mat-form-field>
+                                <mat-form-field>
+                                    <input type="text" readonly value=" " matInput placeholder="Organization"/>
+                </mat-form-field>
+                                    <mat-form-field>
+                                        <input type="text" readonly value="Harvard University" matInput placeholder="Graduated school"/>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+
+        <mat-tab label=" Academic">
+            <div class="tab-content">
+                <mat-form-field>
+                    <input type="text" readonly value=" " matInput placeholder="Faculty"/>
+                </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" readonly value=" " matInput placeholder="Department"/>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Job Status">
+            <div class="tab-content">
+                <mat-form-field>
+                    <input type="text" readonly value=" " matInput placeholder="Business Unit"/>
+                </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" readonly value=" " matInput placeholder="Primary Location"/>
+                </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" readonly value=" " matInput placeholder="Assignment Category"/>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</ion-content>

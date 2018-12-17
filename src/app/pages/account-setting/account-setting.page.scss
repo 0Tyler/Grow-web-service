@@ -1,0 +1,59 @@
+@import "../../../theme/grow.scss";
+@import "../../../theme/variables.scss";
+.home {
+    .head {
+        display: block;
+        margin: 0%;
+        border-bottom: 4px $light solid;
+        ion-grid {
+            padding: 3% 0 2% 3%;
+        } //p
+        P {
+            -webkit-user-select: auto;
+        }
+        p:focus * {
+            border: 3px inset grey;
+            width: 400px;
+            height: 200;
+            margin: 30px;
+        }
+        ion-button {
+            --border-radius: 4px;
+            width: 100%;
+            font-weight: 200;
+            .uploadIcon {
+                --ion-padding: 0px;
+            }
+            .uploadText {
+                padding-left: 8%;
+                p {
+                    margin: 0;
+                    text-align: left;
+                    font-size: 10px;
+                }
+            }
+            &>ion-col {
+                --text-align: left;
+            }
+        }
+    }
+    .mat-tab-label {
+        width: 33.33% !important;
+    }
+    .mat-ink-bar {
+        background-color: $theme !important;
+    }
+    mat-tab-label-activeg,
+    cdk-focused,
+    cdk-touch-focused,
+    md-input-container.md-input-focused label {
+        color: $theme;
+    }
+    .tab-content {
+        margin-top: 4%;
+        &>* {
+            padding: 2% 5% 0 5%;
+            width: 100%;
+        }
+    }
+}

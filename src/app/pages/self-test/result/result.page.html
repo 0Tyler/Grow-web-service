@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button (click)="goTabsPage()"></ion-back-button>
+        </ion-buttons>
+        <div>Personality assessment status</div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding-start padding-top>
+    <div>
+        <ion-list lines="none">
+            <ion-item no-padding>
+                <img class="img-round" src="https://via.placeholder.com/50.png"/>
+                <ion-label padding-start>
+                    <ion-button class='btn-status-u' shape="round" fill="outline">
+                        Not started
+                    </ion-button>
+                    <p>Practice</p>
+                </ion-label>
+                <button mat-flat-button class='btn-details-u' (click)="goResultPage()">
+                    Start
+                </button>
+            </ion-item>
+            <ion-item no-padding *ngFor="let t of traits">
+                <img class="img-round" [src]="t.imgUrl"/>
+                <ion-label class='btn-status-c' padding-start>
+                    <ion-button shape="round" fill="outline">
+                        {{t.status}}
+                    </ion-button>
+                    <p>{{t.name}}</p>
+                </ion-label>
+                <button mat-flat-button class='btn-details-c'>
+                    See the details
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

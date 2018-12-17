@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="warning">
+        <ion-buttons slot="start">
+            <ion-back-button (click)="goResultPage()"></ion-back-button>
+        </ion-buttons>
+        <ion-title no-padding>Personality assessment(1/6)</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content text-center padding>
+    <p>{{dir}} is selected</p>
+    <div class="container">
+        <div id="iat1" class="iat">
+            <p>Others</p>
+            <p>Extroverted</p>
+        </div>
+        <div id="iat2" class="iat" CdkDropList>
+            <p>Myself</p>
+            <p>Introverted</p>
+        </div>
+    </div>
+    <!-- [style.left.px]="left" [style.top.px]="top" -->
+    <div class="example-box" id="drag-source" draggable="true" cdkDrag>Talktive</div>
+
+    <!-- 
+    <div class="example-box" id="drag-source" draggable="true" (dragstart)="drag($event)" (click)="onClickMe()" CdkDrag>Talktive</div> -->
+</ion-content>

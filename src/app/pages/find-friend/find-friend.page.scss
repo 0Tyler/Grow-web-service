@@ -1,0 +1,22 @@
+@import "../../../theme/grow.scss";
+small {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.list-ios {
+    margin: 3% 0 0 1%;
+}
+
+//custom
+.light {
+    --background: #f5f5f5;
+    --inner-border-width: 0 !important;
+    margin-top: 3%;
+}
+
+.badge {
+    background: $theme;
+    color: white;
+    border-radius: 100%;
+}

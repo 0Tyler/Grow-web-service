@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar text-center>
+        <ion-buttons slot="primary">
+            <ion-button (click)="addFriends()">
+                <ion-icon slot="icon-only" name="person-add" color="primary"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Friend list</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="bubbles">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-segment margin-vertical padding-horizontal [(ngModel)]="friendsTag">
+        <ion-segment-button value="list"> List </ion-segment-button>
+        <ion-segment-button value="friendRequests">
+            Friend requests
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="friendsTag">
+        <ion-list lines="none" *ngSwitchCase="'list'">
+            <ion-item *ngFor="let e of Friends">
+                <img class="img-round" [src]="e.imgUrl"/>
+                <ion-label>
+                    <h2>{{e.name}}</h2>
+                    <ion-button shape="round" fill="outline">
+                        Subject to giving GIFTs
+                        </ion-button>
+                </ion-label>
+                <ion-buttons slot="start">
+                    <ion-button color="primarty" (click)="getMore()">
+                        <ion-icon slot="icon-only" name="more"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+        </ion-list>
+        <ion-list lines="none" *ngSwitchCase="'friendRequests'">
+            <ion-item *ngFor="let f of friendsRequests">
+                <img class="img-round" [src]="f.imgUrl"/>
+                <ion-label>
+                    <h2>{{f.name}}</h2>
+                    <p>GIVE YOUR GIFES.</p>
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button (click)="yesRespond(f)">
+                        <ion-icon slot="icon-only" name="checkmark-circle-outline"color="success"></ion-icon>
+                    </ion-button>
+                    <ion-button (click)="deleteFriendsArray(f)">
+                        <ion-icon slot="icon-only" name="close-circle-outline" color="danger"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

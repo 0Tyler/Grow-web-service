@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar> <ion-title>Competencies</ion-title> </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list inset="true">
+        <ion-item
+            no-padding
+            detail="false"
+            *ngFor="let e of Results"
+            (click)="goTabsPage()"
+        >
+            <ion-grid no-padding margin-vertical fixed>
+                <ion-row>
+                    <ion-col no-padding size="1" class="img-box">
+                        <img [src]="e.imgUrl" />
+                    </ion-col>
+                    <ion-col padding-start size="11" class="p-title">
+                        <p>{{e.name}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="10">
+                        <ion-range
+                            no-padding
+                            step="25"
+                            snaps="true"
+                            disabled="true"
+                            class="r-f"
+                            [(ngModel)]="e.selfValue"
+                        ></ion-range>
+                    </ion-col>
+                    <ion-col size="2">
+                        <p class="p-f">{{ e.selfValue }}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="10">
+                        <ion-range
+                            no-padding
+                            step="25"
+                            snaps="true"
+                            disabled="true"
+                            class="r-s"
+                            [(ngModel)]="e.otherValue"
+                        ></ion-range>
+                    </ion-col>
+                    <ion-col size="2">
+                        <p class="p-s">{{ e.otherValue }}</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+</ion-content>

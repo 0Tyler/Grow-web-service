@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar> <ion-title text-center>Notices</ion-title> </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            refreshingSpinner="bubbles"
+        >
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item no-padding *ngFor="let e of [0, 1, 2, 3, 4, 5]" href="#">
+            <ion-label padding-start margin-vertical>
+                <h3><strong>Notice of Server Maintenance</strong></h3>
+                <p>
+                    We have continued to regard our users'privacy as our top
+                    concern...
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

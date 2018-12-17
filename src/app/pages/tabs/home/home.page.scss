@@ -1,0 +1,49 @@
+@import "../../../../theme/grow.scss";
+@import "../../../../theme/variables.scss";
+.home {
+    .head {
+        padding-top: 6vh;
+        padding-bottom: 3vh;
+        margin: 0%;
+        border-bottom: 4px $light solid;
+        background-image: linear-gradient( 225deg, #FED758, #FFDE75, rgb(255, 209, 58), #FAC51C, );
+        img {
+            width:20%;
+            min-width: 50px;
+            margin-bottom: 10px;
+        }
+        p {
+            padding: 5px 10px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+    }
+    mat-tab-group {
+        width: 100%;
+    }    
+    .mat-tab-label {
+        width: 33.33% !important;
+    }
+    .mat-ink-bar {
+        background-color: $theme !important;
+    }
+    mat-tab-label-activeg,
+    cdk-focused,
+    cdk-touch-focused,
+    md-input-container.md-input-focused label {
+        color: $theme;
+    }
+    .tab-content {
+        height: 100vh;
+        width: 100%;
+        padding-top: 5%;
+    }
+    .tab-content {
+        margin-top: 4%;
+        &>* {
+            padding: 2% 5% 0 5%;
+            width: 100%;
+        }
+    }
+}

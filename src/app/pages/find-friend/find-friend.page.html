@@ -1,0 +1,37 @@
+<!-- Default back button -->
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="tabs/(friends:friends)" (click)="dismiss()"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Select friends</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar></ion-searchbar>
+    <ion-item class="light">
+        <ion-label>Options selected</ion-label>
+        <ion-badge slot="end">{{ selectedLength }}</ion-badge>
+    </ion-item>
+    <ion-list #names>
+        <ion-item *ngFor="let select of selects" (click)="onChecked()" no-padding>
+            <img class="img-round" src="https://via.placeholder.com/50.png" />
+            <ion-label text-left> {{ select.name }} </ion-label>
+            <ion-checkbox color="primary" slot="end" [(ngModel)]="select.isSelected">
+            </ion-checkbox>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar text-center>
+        <small>
+            If you do not have a connection with your friends, invite your
+            friends from other applications.
+        </small>
+        <ion-button icon-end expand="full" fill="clear" (click)="shareWith()">
+            SELECT OTHER APPLICATION
+        </ion-button>
+        <ion-button icon-end expand="full"> SEND REQUESTS </ion-button>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,48 @@
+@import "../../../../theme/grow.scss";
+ion-range {
+    --knob-size: 40px;
+    --knob-box-shadow: none;
+}
+
+.r-f {
+    // --knob-background: url("https://via.placeholder.com/40.png");
+    --knob-background: #ffce00;
+}
+
+.r-s {
+    // --knob-background: url("https://via.placeholder.com/40.png");
+    --knob-background: #4c8dff;
+}
+
+.img-box {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+    border-radius: 2px;
+}
+
+.p-title {
+    --ion-padding: 16px;
+}
+
+ion-col {
+    --ion-padding: 0px;
+    display: flex;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+
+.p-f {
+    color: #ffce00;
+}
+
+.p-s {
+    color: #4c8dff;
+}

@@ -1,0 +1,60 @@
+@import "../../../../theme/grow.scss";
+img {
+    height: 150px;
+    width: 150px;
+    min-height: 150px;
+    min-width: 100px;
+}
+
+h6 {
+    margin: 0;
+    padding: 0 0 10px 0;
+}
+
+p {
+    border: 0.5px solid $light;
+    background: $lighter;
+    border-radius: 4px;
+    position: relative;
+    padding: 5% 10%;
+    margin: 20% auto 10%;
+    width: 80%;
+    text-align: left;
+}
+
+.mat-slider-horizontal {
+    width: 100%;
+}
+
+.slider-margin {
+    margin: 10px;
+}
+
+%btn {
+    padding: 1px 30% 1px 30%;
+}
+
+.btn-skip {
+    @extend %btn;
+    color: white;
+    background-color: #56b9e2;
+}
+
+.btn-next {
+    @extend %btn;
+    color: white;
+    background-color: #f05858;
+}
+
+.btn-disable {
+    @extend %btn;
+    color: white;
+    background-color: #aaa;
+}
+
+.div-footer {
+    margin-bottom: 10%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

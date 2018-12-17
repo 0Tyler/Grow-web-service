@@ -1,0 +1,26 @@
+<ion-content text-center class="bg">
+    <div>
+        <div padding>
+
+            <div class="form">
+                <img class="logo" src="assets/image/logo_b.png" />
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Account"/>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password"/>
+                </mat-form-field>
+                <br>
+                <small class="font-dark font-small">Are you new to Grow?</small>
+                <br>
+                <small class="font-theme font-small margin-top">
+                    <a class="font-href" href="#">Register here</a>
+                </small>
+
+            <!-- <ion-back-button defaultHref="tabs/(friends:friends)" (click)="dismiss()"></ion-back-button> -->
+                <button class="login" mat-raised-button color="primary" (click)="goAccountSettingPage()">Login</button>
+            </div>
+
+        </div>
+    </div>
+</ion-content>
