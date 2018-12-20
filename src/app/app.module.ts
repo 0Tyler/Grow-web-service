@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -69,6 +70,7 @@ library.add(fas, far, fab);
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
+        HttpClientModule,
         FontAwesomeModule,
         BrowserAnimationsModule,
         // Angular Material Module
@@ -120,4 +122,4 @@ library.add(fas, far, fab);
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -51,7 +51,7 @@ const routes: Routes = [
     {
         path: 'account-setting',
         loadChildren: './pages/account-setting/account-setting.module#AccountSettingPageModule'
-    }
+    },
 
 ];
 @NgModule({

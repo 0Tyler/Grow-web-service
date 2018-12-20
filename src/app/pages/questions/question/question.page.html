@@ -3,14 +3,11 @@
         <ion-grid fixed>
             <ion-row padding-vertical>
                 <ion-col size="1">
-                    <fa-icon [icon]="faQuora" size="2x"></fa-icon
-                ></ion-col>
-                <ion-col padding-start size="11"
-                    ><ion-label
-                        >S/he knows when someone's arguments lack logic or
-                        contain contraditions.</ion-label
-                    ></ion-col
-                >
+                    <fa-icon [icon]="faQuora" size="2x"></fa-icon>
+                </ion-col>
+                <ion-col padding-start size="11">
+                    <ion-label>{{questionTitle}}</ion-label>
+                </ion-col>
             </ion-row>
         </ion-grid>
     </ion-toolbar>
@@ -22,25 +19,14 @@
         src="../../../../assets/image/Anush Gevorgyan.jpg"
     />
     <h6 class="font-dark">Anush Gevorgyan</h6>
-    <p>
+    <!-- <p>
         {{content}}
-    </p>
+    </p> -->
     <div class="div-footer">
         <ion-grid>
             <ion-row>
-                <mat-slider
-                    class="slider-margin"
-                    [invert]="invert"
-                    [max]="max"
-                    [min]="min"
-                    [step]="step"
-                    [thumbLabel]="thumbLabel"
-                    [tickInterval]="tickInterval"
-                    [(ngModel)]="value"
-                    [vertical]="vertical"
-                    color="accent"                    
-                    (change) = "onInputChange($event)"
-                >
+                <mat-slider class="slider-margin" [invert]="invert" [max]="max" [min]="min" [step]="step" [thumbLabel]="thumbLabel"
+                    [tickInterval]="tickInterval" [(ngModel)]="value" [vertical]="vertical" color="accent" (change)="onInputChange($event)">
                 </mat-slider>
             </ion-row>
             <ion-row>
@@ -48,7 +34,7 @@
                     <button class="btn-skip" mat-raised-button>SKIP</button>
                 </ion-col>
                 <ion-col size="6" text-center>
-                    <button [ngClass]="{'btn-disable': !isSelect(),'btn-next':isSelect()}" mat-raised-button (click)="goResultPage()">NEXT</button>
+                    <button [ngClass]="{'btn-disable': !isSelect(),'btn-next':isSelect()}" mat-raised-button (click)="goNext()">NEXT</button>
                 </ion-col>
             </ion-row>
         </ion-grid>
