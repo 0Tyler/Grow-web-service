@@ -9,50 +9,23 @@
         <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="bubbles">
         </ion-refresher-content>
     </ion-refresher>
-    <ion-card>
-        <button (click)="goResultPage()">
-            <ion-card-header>
-                <ion-card-subtitle>2018/05/30</ion-card-subtitle>
-                <ion-card-title>Business Name</ion-card-title>
-            </ion-card-header>
+    <div *ngFor="let item of cards; let i = index">
+        <ion-card>
+            <button (click)="goResultPage(i)">
+                <ion-card-header>
+                    <!-- <ion-card-subtitle>2018/05/30</ion-card-subtitle> -->
+                    <ion-card-title>{{i+1}}. {{item.Qname}}</ion-card-title>
+                </ion-card-header>
 
-            <ion-card-content>
-                (This is description of questionnaire)
-                Keep close to Nature's heart... and break clear away, once in
-                awhile, and climb a mountain or spend a week in the woods. Wash your
-                spirit clean.
-            </ion-card-content>
-        </button>
-    </ion-card>
-    <ion-card>
-        <button (click)="goResultPage()">
-            <ion-card-header>
-                <ion-card-subtitle>2018/04/21</ion-card-subtitle>
-                <ion-card-title>Business Name</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content>
-                (This is description of questionnaire)
-                Keep close to Nature's heart... and break clear away, once in
-                awhile, and climb a mountain or spend a week in the woods. Wash your
-                spirit clean.
-            </ion-card-content>
-        </button>
-    </ion-card>
-    <ion-card>
-        <button (click)="goResultPage()">
-            <ion-card-header>
-                <ion-card-subtitle>2018/03/18</ion-card-subtitle>
-                <ion-card-title>Business Name</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content>
-                (This is description of questionnaire)
-                Keep close to Nature's heart... and break clear away, once in
-                awhile, and climb a mountain or spend a week in the woods. Wash your
-                spirit clean.
-            </ion-card-content>
-        </button>
-    </ion-card>
+                <ion-card-content>
+                    {{item.Qdescrib}}
+                    (This is description of questionnaire)
+                    Keep close to Nature's heart... and break clear away, once in
+                    awhile, and climb a mountain or spend a week in the woods. Wash your
+                    spirit clean.
+                </ion-card-content>
+            </button>
+        </ion-card>
+    </div>
 
 </ion-content>

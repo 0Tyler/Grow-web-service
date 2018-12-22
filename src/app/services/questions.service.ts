@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
+import { Question } from '../interfaces/questions';
+
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 const getQuestionsUrl = 'http://192.168.2.46:8080/questions';
 
 @Injectable({
@@ -12,7 +15,7 @@ const getQuestionsUrl = 'http://192.168.2.46:8080/questions';
 })
 
 export class QuestionsService {
-
+    answer = new Question();
     constructor(private http: HttpClient) { }
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
@@ -40,8 +43,18 @@ export class QuestionsService {
             catchError(this.handleError));
     }
 
-    addQuestion(url: string, model: FormData) {
-
-        return this.http.post<any>(url, model, httpOptions);
+    addQuestion(url: string, question: Question): Observable<Question> {
+        return this.http.post<Question>(url, question, httpOptions)
+            .pipe(
+                // catchError(this.handleError)
+            );
+    }
+    setAnswer(ans: Question) {
+        this.answer = ans;
+        console.log('question');
+        console.log(this.answer);
+    }
+    getAnswer() {
+        return this.answer;
     }
 }

@@ -9,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginPage implements OnInit {
 
-    constructor(private router: Router) {}
+    constructor(private router: Router) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     goAccountSettingPage() {
         this.router.navigateByUrl('/account-setting');
         console.log('goAccountSettingPage()');
+    }
+
+    goGithub() {
+        console.log('goGithub');
+        window.location.href = 'http://www.google.com';
     }
 }
