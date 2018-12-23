@@ -20,7 +20,6 @@ const routes: Routes = [
                 path: 'home',
                 outlet: 'home',
                 component: HomePage,
-
             },
             {
                 path: 'about',
@@ -51,4 +50,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

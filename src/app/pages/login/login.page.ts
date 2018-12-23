@@ -20,6 +20,6 @@ export class LoginPage implements OnInit {
 
     goGithub() {
         console.log('goGithub');
-        window.location.href = 'http://www.google.com';
+        window.location.href = 'http://andrewli315.nctu.me/login';
     }
 }
