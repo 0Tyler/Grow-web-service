@@ -24,4 +24,4 @@ import { NoticePageModule } from './notice/notice.module';
     ],
     declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule { }

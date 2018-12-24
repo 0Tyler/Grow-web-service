@@ -6,7 +6,7 @@
                     <fa-icon [icon]="faQuora" size="2x"></fa-icon>
                 </ion-col>
                 <ion-col padding-start size="11">
-                    <ion-label>{{questionTitle}}</ion-label>
+                    <ion-label padding-top margin-top class="title">{{questionTitle}}</ion-label>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -16,9 +16,9 @@
 <ion-content padding-top text-center block>
     <img
         class="img-round margin-top"
-        src="../../../../assets/image/Anush Gevorgyan.jpg"
+        src="{{imgUrl}}"
     />
-    <h6 class="font-dark">Anush Gevorgyan</h6>
+    <h6 class="font-dark">{{name}}</h6>
     <!-- <p>
         {{content}}
     </p> -->

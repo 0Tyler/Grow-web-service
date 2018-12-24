@@ -8,9 +8,9 @@
     <ion-tab tab="friends">
         <ion-router-outlet name="friends"></ion-router-outlet>
     </ion-tab>
-    <!-- <ion-tab tab="notice">
+    <ion-tab tab="notice">
         <ion-router-outlet name="notice"></ion-router-outlet>
-    </ion-tab> -->
+    </ion-tab>
 
     <ion-tab-bar id="dashboard-tab-bar" slot="bottom">
         <ion-tab-button tab="home" href="/tabs/(home:home)">
@@ -21,17 +21,17 @@
             <ion-icon name="contacts"></ion-icon>
             <ion-label>Friends</ion-label>
         </ion-tab-button>
-        <!-- <ion-tab-button tab="IAT" href="/self-test-result">
+        <ion-tab-button tab="IAT" href="/questions" (click)="onClick()">
             <ion-icon class="icon-hands-receiving" src="../../../assets/image/handstar.svg" size="large"></ion-icon>
-        </ion-tab-button> -->
+        </ion-tab-button>
         <ion-tab-button tab="about" href="/tabs/(about:about)">
             <ion-icon name="alarm"></ion-icon>
             <ion-label>History</ion-label>
         </ion-tab-button>
 
-        <!-- <ion-tab-button tab="notice" href="/tabs/(notice:notice)">
+        <ion-tab-button tab="notice" href="/tabs/(notice:notice)">
             <ion-icon name="notifications-outline"></ion-icon>
             <ion-label>Notices</ion-label>
-        </ion-tab-button> -->
+        </ion-tab-button>
     </ion-tab-bar>
 </ion-tabs>

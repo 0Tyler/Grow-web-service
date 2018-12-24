@@ -2,8 +2,12 @@ import { QuestionsService } from './../../../services/questions.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
+
 import { faQuora } from '@fortawesome/free-brands-svg-icons';
 import { Question } from './../../../interfaces/questions';
+import { from } from 'rxjs';
 @Component({
     selector: 'app-question',
     templateUrl: './question.page.html',
@@ -16,6 +20,10 @@ export class QuestionPage implements OnInit {
     faQuora = faQuora;
     // Content
     content = 'Please select one of these values.';
+    // imgUrl
+    imgUrl = 'https://via.placeholder.com/500.png';
+    name = 'default name';
+    userName = '';
     // Slider attribute
     autoTicks = false;
     invert = false;
@@ -27,7 +35,19 @@ export class QuestionPage implements OnInit {
     value: number | 'auto' = 2.5;
     vertical = false;
     // Questions data
-    questions: Array<String> = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
+    questions: Array<String> = ['Mechanical aptitude',
+        'Scientific skills',
+        'Artistic ability',
+        'Teaching skills',
+        'Sales skills',
+        'Organizational skills',
+        'Operational ability',
+        'Mathematical ability',
+        'Musical ability',
+        'Understanding others',
+        'Management skills',
+        'Writing skills'];
+    // questions: Array<String> = ['Mechanical aptitude'];
     // questions: Array<String> = ['q1'];
 
     questionTitle: String = this.questions[0];
@@ -47,7 +67,7 @@ export class QuestionPage implements OnInit {
     }
 
     private _tickInterval = 1;
-    constructor(private router: Router, private questionsService: QuestionsService) {
+    constructor(private router: Router, private questionsService: QuestionsService, private storage: Storage, private alertController: AlertController) {
     }
 
 
@@ -55,6 +75,23 @@ export class QuestionPage implements OnInit {
         this.answer.Qname = 'strQname';
         this.answer.Qdescrib = 'strQdescrib';
         this.answer.username = 'strusername';
+        this.storage.get('currentFriendImgUrl').then((val) => {
+            this.imgUrl = val;
+        });
+        this.storage.get('currentFriendName').then((val) => {
+            this.name = val;
+            console.log('name:', this.name);
+        });
+        this.storage.get('userName').then((val) => {
+            this.userName = val;
+            console.log('userName:', this.userName);
+            if (this.name === this.userName) {
+                console.log('name:', this.name);
+                console.log('userName:', this.userName);
+                this.name = 'YOU';
+                console.log('YOU', this.name);
+            }
+        });
     }
 
 
@@ -63,6 +100,19 @@ export class QuestionPage implements OnInit {
             console.log('goResultPage');
             this.router.navigateByUrl('/result');
         }
+    }
+    goHome() {
+        this.router.navigateByUrl('/tabs/(home:home)');
+    }
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Good Job',
+            subHeader: 'You finished the questionnaire',
+            // message: 'You finished the questionnaire',
+            buttons: ['OK']
+        });
+
+        await alert.present();
     }
     goNext() {
         if (this.isSelect()) {
@@ -113,8 +163,14 @@ export class QuestionPage implements OnInit {
             if (this.questionIndex < this.questions.length) {
                 this.questionTitle = this.questions[this.questionIndex];
             } else {
-                this.addQuestion();
-                this.goResultPage();
+                if (this.name === 'YOU') {
+                    console.log('userlogin');
+                    this.presentAlert();
+                    this.addQuestion();
+                } else {
+                    console.log('Notuserlogin');
+                }
+                this.goHome();
             }
             this.value = 2.5;
         } else {

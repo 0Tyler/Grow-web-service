@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
@@ -61,8 +61,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-library.add(fas, far, fab);
 
+library.add(fas, far, fab);
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -112,7 +112,9 @@ library.add(fas, far, fab);
         MatToolbarModule,
         MatTooltipModule,
         MatTreeModule,
-        ScrollingModule
+        ScrollingModule,
+        // ionic
+        IonicStorageModule.forRoot()
     ],
     providers: [
         StatusBar,

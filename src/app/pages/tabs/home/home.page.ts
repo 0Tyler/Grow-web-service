@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { Storage } from '@ionic/storage';
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
@@ -23,20 +23,18 @@ export class HomePage implements OnInit {
     ];
     token = 'Name';
     private sub: any;
-    constructor(private router: Router, private route: ActivatedRoute) {
+    constructor(private router: Router, private route: ActivatedRoute, private storage: Storage) {
 
     }
 
     ngOnInit() {
-        // this.sub = this.route.params.subscribe(params => {
-        //     this.token = params['token']; // (+) converts string 'id' to a number
-        //     console.log(this.token);
-        //     // In a real app: dispatch action to load the details here.
-        // });
         this.route.queryParams.subscribe(params => {
-            this.token = params['token'];
-            console.log(this.token);
+            if (params['token'] != null) {
+                this.token = params['token'];
+            }
         });
+        this.storage.set('userName', this.token);
+        console.log('home set userName', this.token);
     }
     complete() { }
 }

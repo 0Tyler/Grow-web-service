@@ -8,7 +8,6 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const getQuestionsUrl = 'http://192.168.2.46:8080/questions';
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +15,8 @@ const getQuestionsUrl = 'http://192.168.2.46:8080/questions';
 
 export class QuestionsService {
     answer = new Question();
+    getQuestionsUrl = 'http://192.168.2.46:8080/questions';
+    getResultUrl = 'http://192.168.2.46:8080/analyze/';
     constructor(private http: HttpClient) { }
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
@@ -38,7 +39,15 @@ export class QuestionsService {
     }
     //
     getQuestions(): Observable<any> {
-        return this.http.get(getQuestionsUrl, httpOptions).pipe(
+        return this.http.get(this.getQuestionsUrl, httpOptions).pipe(
+            map(this.extractData),
+            catchError(this.handleError));
+    }
+
+    getResult(username: String): Observable<any> {
+        this.getResultUrl += username;
+        console.log('url:', this.getResultUrl);
+        return this.http.get(this.getResultUrl, httpOptions).pipe(
             map(this.extractData),
             catchError(this.handleError));
     }

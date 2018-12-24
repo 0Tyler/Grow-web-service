@@ -25,7 +25,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         FontAwesomeModule,
         MatSliderModule,
-        MatButtonModule
+        MatButtonModule,
     ],
     declarations: [QuestionPage]
 })
